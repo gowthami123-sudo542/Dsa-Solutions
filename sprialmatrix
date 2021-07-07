@@ -1,0 +1,68 @@
+##time complexity:size of the matrix
+
+class Solution
+{
+    //Function to return a list of integers denoting spiral traversal of matrix.
+    static ArrayList<Integer> spirallyTraverse(int matrix[][], int r, int c)
+    {
+      int rowmax=matrix.length-1;
+        int colmax=matrix[0].length-1;
+        int rowmin=0;
+        int colmin=0;
+        int total=matrix.length*matrix[0].length;
+        List<Integer> l=new ArrayList();
+        String dir="r";
+        while(total>0)
+        {
+           if(dir=="r")
+           {
+           for(int i=colmin;i<=colmax;i++)
+           {
+              l.add(matrix[rowmin][i]); 
+                  total--;               
+
+           }
+           }
+           dir="d";
+           rowmin++;
+           if( dir=="d" && total>0)
+           {
+           for(int i=rowmin;i<=rowmax;i++)
+           {
+              l.add(matrix[i][colmax]);
+                  total--;
+           }
+           }
+          dir="l";
+           colmax--;
+            if(dir=="l" && total>0)
+            {
+                for(int i=colmax;i>=colmin;i--)
+                {
+                    l.add(matrix[rowmax][i]);
+                       total--;
+                }
+            }
+           dir="u";
+            rowmax--;
+            if(dir=="u"  && total>0)
+            {
+                
+                for(int i=rowmax;i>=rowmin;i--)
+                {
+                    
+                    l.add(matrix[i][colmin]);
+                       total--;
+                }
+            }
+            dir="r";
+            colmin++;
+            
+            
+        }
+        ArrayList<Integer> ls = new ArrayList<>(l.size());
+        ls.addAll(l);
+        return ls;
+      
+    }
+}
