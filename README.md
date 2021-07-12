@@ -1,2 +1,2 @@
 # leetcodesolutions
-
+easy section
