@@ -1,1 +1,1 @@
-# _data strutures and algorthims problems_
+# _data structures and algorithms problems_
