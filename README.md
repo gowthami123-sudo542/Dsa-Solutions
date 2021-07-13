@@ -1,1 +1,1 @@
-# data **strutures** and algorthims problems
+# data _strutures_ and **algorthims** problems
