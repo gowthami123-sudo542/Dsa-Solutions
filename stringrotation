@@ -1,0 +1,32 @@
+##  Time complexity:strstr
+###   first concanating the first string and storing it in another variable called as temp.
+### now substring of temp is second string then we can say them as both are rotation to each other.
+import java.util.*;
+public class stringrotation 
+{
+    
+    
+    
+    public static  boolean StringRotation(String s1,String s2)
+    {
+        return (s1.length()==s2.length()) && ((s1+s1).indexOf(s2)!=-1);
+       
+    }
+     public static void main(String[] args)
+     {
+       Scanner sc=new Scanner(System.in);  
+       String s1=sc.nextLine();
+       String s2=sc.nextLine();
+       if(StringRotation(s1,s2))
+       {
+           System.out.println("Both the Strings rotation to each other!");
+       }
+       else
+       {
+           System.out.println("Both the Strings not rotation to each other!");
+           
+       }
+         
+     }
+    
+}
