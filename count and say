@@ -1,0 +1,35 @@
+class Solution {
+    public String countAndSay(int n)
+    {
+        if(n==1)
+        {
+            return "1";
+        }
+        if(n==2)
+        {
+            return "11";
+        }
+        
+        String s= countAndSay(n-1);
+        String str="";
+        int sum=1;
+        for(int i=0;i<s.length()-1;i++)
+        {
+           int j=i+1;
+           if(s.charAt(i)==s.charAt(j))
+           {
+               sum++;
+           }
+         else
+         {
+              str+=String.valueOf(sum)+s.charAt(i);
+            sum=1;
+         }
+           
+        }
+        str+=String.valueOf(sum)+s.charAt(s.length()-1);
+       return str;
+     
+        
+    }
+}
