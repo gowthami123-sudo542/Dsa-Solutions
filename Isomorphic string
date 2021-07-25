@@ -1,0 +1,59 @@
+## Isomorphic string:if one to one mapping possible for every character of string1 to string2 occurs then it is called as  an isomorphic string. 
+
+ex:str1=aab and str2=xxy (isomorphic string)
+{
+## inside for loop
+{
+#first iteration:
+->str1.indexOf(str1.charAt(i))=0
+->str2.indexOf(str2.charAt(i))=0
+#second iteration:
+->str1.indexOf(str1.charAt(i))=0
+->str2.indexOf(str2.charAt(i))=0
+#thrid iteration:
+->str1.indexOf(str1.charAt(i))=1
+->str2.indexOf(str2.charAt(i))=1
+}
+ex:str1=abc and str2=xxy ( not isomorphic string)
+## inside for loop
+{
+#first iteration:
+->str1.indexOf(str1.charAt(i))=0
+->str2.indexOf(str2.charAt(i))=0
+#second iteration:
+->str1.indexOf(str1.charAt(i))=1
+->str2.indexOf(str2.charAt(i))=0(((condition fails and comes out of the loop)))
+#thrid iteration:
+->str1.indexOf(str1.charAt(i))=2
+->str2.indexOf(str2.charAt(i))=1
+}
+
+
+
+class Solution
+{
+    //Function to check if two strings are isomorphic.
+    public static boolean areIsomorphic(String str1,String str2)
+    {
+        int m=str1.length();
+        int n=str2.length();
+      
+        if(m!=n)
+        {
+            return false;
+        }
+        if(m==n)
+        {
+        for(int i=0;i<m;i++)
+        {
+            
+            if(str1.indexOf(str1.charAt(i)) !=str2.indexOf(str2.charAt(i)))
+            {
+                return false;
+            }
+        }
+       
+        }
+        return true;
+    }
+}
