@@ -1,0 +1,58 @@
+import java.util.*;
+public class minimunoperations
+{
+    
+    public static int  minoperations(String s1,String s2)
+    {
+        
+        int s1len=s1.length();
+        int s2len=s2.length();
+        int count[]=new int[256];
+        int result=0;
+        if(s1len != s2len)
+        {
+            return -1;
+            
+        }
+        for(int i=0;i<s1len;i++)
+        {
+            count[s1.charAt(i)]++;
+            count[s2.charAt(i)]--;
+        }
+        for(int i=0;i<256;i++)
+        {
+            if(count[i]!=0)
+            {
+                return -1;
+            }
+        }
+        int m=s1.length()-1;
+        int n=s2.length()-1;
+        while(m>=0)
+        {
+            
+            if(s1.charAt(m)!=s2.charAt(n))
+            {
+               result++; 
+            }
+            else
+            {
+               n--;  
+            }  
+               
+            
+            m--;
+        }
+        return result;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String str1=sc.nextLine();
+        System.out.println("Enter the second string");
+        String str2=sc.nextLine();
+        System.out.println("The minimum number of operations required are "+minoperations(str1,str2));
+        
+    }
+}
