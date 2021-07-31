@@ -1,0 +1,55 @@
+import java.util.*;
+public class palindrome 
+{
+    
+   public static void main(String[] args)
+   {
+       
+       Scanner sc= new Scanner(System.in);
+       int t=sc.nextInt();
+       while(t>0)
+       {
+         int n=sc.nextInt();
+         int a[]=new int[n];
+         for(int i=0;i<n;i++)
+         {
+             a[i]=sc.nextInt();
+         }
+         t--;
+         GFG g=new GFG();
+         System.out.println(g.isPalinArray(a,n));
+       }
+       
+   }
+    
+    
+}
+class GFG
+{
+   
+   
+     static boolean isPalindrome(int N)
+    {
+        String str = "" + N;
+        int len = str.length();
+        for (int i = 0; i < len / 2; i++) {
+            if (str.charAt(i) != str.charAt(len - 1 - i))
+                return false;
+        }
+        return true;
+    }
+ 
+    
+    static boolean isPalinArray(int[] arr, int n)
+    {
+       
+        for (int i = 0; i < n; i++) {
+            boolean ans = isPalindrome(arr[i]);
+            if (ans == false)
+                return false;
+        }
+        return true;
+    }   
+                 
+} 
+
