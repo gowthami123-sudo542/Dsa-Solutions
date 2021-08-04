@@ -1,0 +1,35 @@
+class Solution
+{
+    static boolean match(String wild, String pattern)
+    {
+      int n=pattern.length();
+      int m=wild.length();
+      // if length of the first and second  string are zero
+      if(n==0 && m==0)
+      {
+              return true;
+      }
+      /*If length of second  string is zero and length of the first string 
+        is greater than zero.
+      */
+      if(m==0 && n>1 && wild.charAt(0)=='*')
+        return false;
+        
+      /* If  wild string first character is "?" and remaining substring 
+      is equal to  pattern string then call the function recursively  */
+      if((m>1 && wild.charAt(0)=='?')||(n!=0 && m!=0 && 
+          wild.charAt(0)==pattern.charAt(0)))
+          return match(wild.substring(1),pattern.substring(1));
+          
+      /* If  wild string first character is "*" then in second string
+      either we consider the characters or we leave it.*/
+      if(m>0 && wild.charAt(0)=='*')
+       
+        return ((wild.substring(1),pattern)|| match(wild,pattern.substring(1)));
+                 
+      return false;
+        
+    }
+    
+    
+}
