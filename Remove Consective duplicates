@@ -1,0 +1,20 @@
+class Solution{
+    public String removeConsecutiveCharacter(String S)
+    {
+     char[] ch=S.toCharArray();  
+     int n=S.length();
+     char [] arr=new char[n];
+     int j=0;
+     for(int i=1;i<n;i++)
+     {
+        if(arr[j]!=ch[i])
+        {
+            j++;
+            arr[j]=ch[i];
+        }
+     }
+     String str = String.valueOf(arr);
+     return str;
+     }
+    
+    }
