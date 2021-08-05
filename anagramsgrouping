@@ -1,0 +1,40 @@
+class Solution 
+{
+    public void Anagrams(String[] string_list)
+    {
+        
+        HashMap<String,List<String>>  map=new Hashmap<>();
+        
+        for(int i=0;i<string_list.length;i++)
+        {
+            String word=string_list[i];
+            char arr[]=word.toCharArray();
+            Arrays.sort(arr);
+            String sorted_word=new String(arr);
+            
+            if(map.containsKey(sorted_word))
+            {
+                map.get(sorted_word).add(word);
+            }
+            else
+            {
+                List<String> words=new ArrayList<>();
+                words.add(word);
+                map.put(sorted_word,words);
+            }
+            
+        }
+         for(String s:map.keySet())
+         {
+         List<String> values = map.get(s);
+         if (values.size() > 1) 
+          {
+             System.out.println(values);
+          }
+         }
+        
+       
+    
+    }
+}
+ 
