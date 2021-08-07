@@ -1,0 +1,31 @@
+class Solution{
+    static int minimumNumberOfSwaps(String S)
+    {
+        
+        int n=S.length();
+        int leftBracket=0;
+        int rightBracket=0;
+        int imbalance=0;
+        int swap=0;
+        for(int i=0;i<n;i++)
+        {
+           if(S.charAt(i)=='[')
+           {
+               leftBracket++;
+               if(imbalance>0)
+               {
+                  swap=swap+imbalance;
+                  imbalance--;
+               }
+              
+           }
+           else if(S.charAt(i)==']')
+           {
+               rightBracket++;
+               imbalance=(rightBracket-leftBracket);
+           }
+        }
+        return swap;
+        // code here
+    }
+}
