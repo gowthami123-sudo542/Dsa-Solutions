@@ -1,0 +1,67 @@
+import java.util.*;
+public class MinMax 
+{
+    //class is used  to return  max and min
+    static class pair
+    {
+        
+        int maxi;
+        int mini;
+    }
+    //creating the function to to find the min max operations.
+    static pair GetMinMax(int arr[],int n)
+    {
+        
+        pair minmax=new pair();
+        if(n==1)
+        {
+            minmax.mini=arr[0];
+            minmax.maxi=arr[0];
+            return minmax;
+        }
+       //Intalizing the  min and max values
+       if(arr[0]>arr[1])
+       {
+          minmax.mini=arr[1];
+          minmax.maxi=arr[0];
+       }
+       else
+       {
+          minmax.maxi=arr[1];
+          minmax.mini=arr[0];
+       }
+       for(int i=2;i<n;i++)
+       {
+          if(arr[i]>minmax.maxi)
+          {
+            minmax.maxi=arr[i];
+          }
+          else if(arr[i]<minmax.mini)
+          {
+              minmax.mini=arr[i];
+          }
+            
+       }
+       return minmax;
+    }
+    public static void main(String [] args)
+    {
+        
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the size of the array");
+        int n=sc.nextInt();
+        System.out.println("Enter the elements in the array");
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        /* this calling is similar  to int a;
+        a=functionname(arguments);
+        */
+        pair minmax;
+        minmax=GetMinMax(arr,n);
+        System.out.println("The minimum value in the array is->"+minmax.mini);
+        System.out.println("The maximum value in the array is->"+minmax.maxi);
+    }
+}
