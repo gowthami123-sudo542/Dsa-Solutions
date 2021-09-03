@@ -1,10 +1,10 @@
 # LINEAR SEARCH
 
 # Time Complexity:
-   * Best Case:
-              *  O(1)
+   1. Best Case:
+              * O(1)
               * Graph:constant growth 
-   * Worst Case:
+   2. Worst Case:
              * O(n)
              * Graph: linear growth
     
