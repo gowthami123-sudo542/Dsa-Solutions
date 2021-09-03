@@ -1,7 +1,11 @@
 # LINEAR SEARCH
 
 # Time Complexity:
-   * Best Case:O(1)(constant growth)
-   * Worst Case:O(n)(linear growth)
+   * Best Case:
+              1)O(1)
+              2)Graph:constant growth
+   * Worst Case:
+             1) O(n)
+             2) Graph:linear growth
     
 
