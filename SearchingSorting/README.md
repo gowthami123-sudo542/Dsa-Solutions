@@ -2,10 +2,10 @@
 
 # Time Complexity:
    * Best Case:
-              - O(1)
-              - Graph:** constant growth **
+              1. O(1)
+              2. Graph:constant growth 
    * Worst Case:
-             -  O(n)
-             -  Graph:** linear growth **
+             1. O(n)
+             2. Graph: linear growth
     
 
