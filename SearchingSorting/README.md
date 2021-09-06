@@ -9,7 +9,7 @@
              2) Graph: linear growth
  # BINARY SEARCH
  
-  #Time Complexity:
+  # Time Complexity:
   
   1)
     
