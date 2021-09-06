@@ -2,10 +2,15 @@
 
 # Time Complexity:
    1. Best Case:
-              * O(1)
-              * Graph:constant growth 
+              1)O(1)
+              2)Graph:constant growth 
    2. Worst Case:
-             * O(n)
-             * Graph: linear growth
+             1) O(n)
+             2) Graph: linear growth
+ # BINARY SEARCH
+ 
+  #Time Complexity:
+  
+  1)
     
 
