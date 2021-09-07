@@ -11,6 +11,10 @@
  
   # Time Complexity:
   
-  1)
+  1) Best Case:
+              1)O(1) at moddle element
+              2)Graph:constant growth
+  2) Worst Case:
+              1)log(n)
     
 
