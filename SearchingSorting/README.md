@@ -2,19 +2,19 @@
 
 # Time Complexity:
    1. Best Case:
-              1)O(1)
-              2)Graph:constant growth 
+              - O(1)
+              - Graph:constant growth 
    2. Worst Case:
-             1) O(n)
-             2) Graph: linear growth
+             - O(n)
+             - Graph: linear growth
  # BINARY SEARCH
  
   # Time Complexity:
   
   1) Best Case:
-              1)O(1) at moddle element
-              2)Graph:constant growth
+              - O(1) at moddle element
+              - Graph:constant growth
   2) Worst Case:
-              1)log(n)
+              - log(n)
     
 
