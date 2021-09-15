@@ -1,10 +1,4 @@
 
-package Patterns;
-
-/**
- *
- * @author dell
- */
 import java.util.*;
 public class pattern1 
 {
