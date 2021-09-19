@@ -1,0 +1,47 @@
+### NOTE: Switch Cases
+ 
+   ->Break is used to terminate the sequence.
+   ->expression data type and case value should be same.
+   
+import java.util.*;
+public class switchCases 
+{
+    public static void main(String [] args)
+    {
+      Scanner sc=new Scanner(System.in);
+      String s=sc.next();
+      
+      switch(s)
+      {
+          case "Apple":
+              
+                       System.out.println("An apple a day keeps doctor away");
+                       break;
+          case "Mango":
+                       System.out.println("Summer Fruit");
+                       break;
+                       
+          case "Grapes":
+                       System.out.println("Grape Wine");
+                       break;
+          default:
+              
+                      System.out.println("Please Enter the valid input");
+                      break;
+              
+              
+      }
+      //  Enhanced switch Cases
+      /*switch(s)
+      {
+         case "Apple" -> System.out.println("An apple a day keeps doctor away"); 
+         case "Mango" -> System.out.println("Summer Fruit");    
+         case "Grape" -> System.out.println("Grape Wine");  
+         case "Orange" -> System.out.println("Round fruit");
+      }*/
+        
+    }
+    
+}
+
+
