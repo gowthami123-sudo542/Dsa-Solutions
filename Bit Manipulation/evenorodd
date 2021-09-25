@@ -1,0 +1,22 @@
+public class evenandodd 
+{
+    
+    public static void main(String [] args)
+    {
+          int n=8;
+        // In binary 7=(111)
+        //Last binary number which is on right hand side decides whether it is even or odd
+        //  1&1=1  and 1&0=0
+        //Last binary number is 1 then it is odd and if it is 0 it is even 
+        
+        if(1 == (1 &n))
+        {
+            System.out.println("The number is odd number ");  
+        }
+        else
+        {
+            System.out.println("The number is even number ");            
+        }
+    }
+    
+}
