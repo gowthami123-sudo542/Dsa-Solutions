@@ -20,9 +20,10 @@
  # BUBBLE SORT
   #Time Complexity:
   
-  1)Best Case:
+  1) Best Case:
            -O(n) :Elements are Already Sorted
-  2)Worst Case:
+           
+  2) Worst Case:
            -O(n**2) :Elements are Sorted in reverse order
     
 
