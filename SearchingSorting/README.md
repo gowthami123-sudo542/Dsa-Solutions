@@ -30,7 +30,7 @@
   # Time Complexity:
   
   1) Best Case:
-           -O(n**2) :We need to select the max element  and swap with last index.
+           -O(n**2) :We need to select the max/min element  and swap with last index.
            
   2) Worst Case:
-           -O(n**2) : We need to select the max elements and swap with last index.
+           -O(n**2) : We need to select the max/min elements and swap with last index.
