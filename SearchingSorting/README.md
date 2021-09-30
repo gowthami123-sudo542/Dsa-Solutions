@@ -3,17 +3,17 @@
 # Time Complexity:
    1. Best Case:
               - O(1)
-              - Graph:constant growth 
+              - Graph:constant growth .
    2. Worst Case:
              - O(n)
-             - Graph: linear growth
+             - Graph: linear growth.
  # BINARY SEARCH
  
   # Time Complexity:
   
   1) Best Case:
-              - O(1) at moddle element
-              - Graph:constant growth
+              - O(1) at moddle element.
+              - Graph:constant growth.
   2) Worst Case:
               - log(n)
 
@@ -21,9 +21,16 @@
   # Time Complexity:
   
   1) Best Case:
-           -O(n) :Elements are Already Sorted
+           -O(n) :Elements are Already Sorted.
            
   2) Worst Case:
-           -O(n**2) :Elements are Sorted in reverse order
+           -O(n**2) :Elements are Sorted in reverse order.
     
-
+# SELECTION SORT
+  # Time Complexity:
+  
+  1) Best Case:
+           -O(n**2) :We need to select the max element  and swap with last index.
+           
+  2) Worst Case:
+           -O(n**2) : We need to select the max elements and swap with last index.
