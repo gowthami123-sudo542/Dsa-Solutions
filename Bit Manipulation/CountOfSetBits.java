@@ -1,6 +1,30 @@
 class Solution{
     
     //Function to return sum of count of set bits in the integers from 1 to n.
+    
+    
+    
+    
+    
+    
+    /*
+    
+    
+    finding largestpowerof2
+
+                    2^0=1(001)
+                    2^1=2(010)
+
+                    2^2=4(100)''''''''''''''''
+                x=0;     
+                let n=5
+                while((1<<x)<=n)
+                {
+                  x++; x=1
+                       x=2
+                       x=3
+                }
+                return x=x-1*/
     public static int countSetBits(int n)
     {
         
