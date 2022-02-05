@@ -1,0 +1,295 @@
+import java.util.*;
+import java.io.*;
+public class PlayfairCipher 
+{
+    
+    
+    String key;
+    String plaintext;
+    char[][] keymatrix=new char[5][5];
+    //constructor
+    public PlayfairCipher(String key,String plaintext)
+    {
+        this.key=key.toLowerCase();
+        this.plaintext=plaintext.toLowerCase();
+    }
+ 
+    public  void RemoveDuplicatesInKey()
+    {
+      LinkedHashSet<Character> set=new LinkedHashSet<>();
+      
+       String newkey="";
+       
+       for(int i=0;i<key.length();i++)
+       {
+         set.add(key.charAt(i));  
+       }
+       
+       Iterator<Character> it=set.iterator();
+       while(it.hasNext())
+       {
+        
+           newkey+=(Character)it.next();
+           
+       }
+       System.out.println(newkey);
+       key=newkey;
+       
+       
+    }
+    
+    public void generateCipherKey()
+    {
+        HashSet<Character> set=new HashSet<Character>();
+        for(int i=0;i<key.length();i++)
+        {
+            if(key.charAt(i)=='j')
+            {
+                continue;
+            }
+            set.add(key.charAt(i));
+            
+        }
+       
+        String tempKey=new String(key);
+        for(int i=0;i<26;i++)
+        {
+            char ch=(char)(i+97);
+            if(ch=='j')
+            {
+              continue;  
+            }
+            if(!set.contains(ch))
+            {
+                tempKey+=ch;
+            }
+        }
+        System.out.println("Formmated key->"+tempKey); 
+        int k=0;
+        for(int i=0;i<5;i++)
+        {
+            for(int j=0;j<5;j++)
+            {
+              keymatrix[i][j]=tempKey.charAt(k++);  
+            }
+        }
+        for(int i=0;i<5;i++)
+        {
+            System.out.println(Arrays.toString(keymatrix[i]));
+        }
+    }
+    public String FormattingPlaintext()
+    {
+       
+        String message="";
+        int len=plaintext.length();
+        for(int i=0;i<len;i++)
+        {
+            if(plaintext.charAt(i)=='j')
+            {
+                message=message+'i';
+            }
+            else
+            {
+                message=message+plaintext.charAt(i);
+            }
+        }
+       
+       return message; 
+    }
+    public String OddLength(String message)
+    {
+        
+        
+        
+        int len=message.length();
+        if(len%2==1)
+        {
+            message=message+'x';
+        }
+        return message; 
+    }
+    
+    public String SameSubsequentCharacters(String message)
+    {
+        //String message="";
+        int len=plaintext.length();
+        
+        for(int i=0;i<message.length()-1;i+=2)
+        {
+          
+            
+            
+            if(message.charAt(i)==message.charAt(i+1))
+            {
+                message=message.substring(0,i+1)+'x'+message.substring(i+1);
+            }
+            
+        
+        }
+        len=len+1;
+        if(len%2==1)
+        {
+            message=message+'x';
+        }
+        return message;
+
+    }
+    
+    public String[] PairofString(String message)
+    {
+        int len=message.length();
+        String[] pairofcharacters=new String[len/2];
+        int j=0;
+        for(int i=0;i<len/2;i++)
+        {
+          pairofcharacters[i]=message.substring(j,j=j+2);
+        
+        }
+        return  pairofcharacters;
+    }
+    
+    public int[] getCharPos(char ch)
+    {
+      
+        int[] keyPos=new int[2];
+        for(int i=0;i<5;i++)
+        {
+            for(int j=0;j<5;j++)
+            {
+              if(keymatrix[i][j]==ch)
+              {
+                  keyPos[0]=i;
+                  keyPos[1]=j;
+                  break;
+              }
+            }
+        }
+        return keyPos;
+    }
+     public String Encryption()
+     {
+       
+        boolean check=false;
+        String plaintext1="";
+         for(int i=0;i<plaintext.length()-1;i++)
+          {
+              if(plaintext.charAt(i)==plaintext.charAt(i+1))
+              {
+                  check =true;
+              }
+          }
+          if(check)
+          {
+             plaintext1=SameSubsequentCharacters(FormattingPlaintext());
+          }
+          else   
+          {
+              if(plaintext.length()%2==0)
+              {
+                plaintext1= FormattingPlaintext();   
+              }
+              else
+              {
+                  plaintext1=OddLength(FormattingPlaintext());
+              }
+              
+          }
+       System.out.println(plaintext1);
+       String[] pairs= PairofString(plaintext1);
+       String enctext="";
+       for(int i=0;i<pairs.length;i++)
+       {
+           char ch1=pairs[i].charAt(0);
+           char ch2=pairs[i].charAt(1);
+           int [] ch1pos=getCharPos(ch1);
+           int [] ch2pos=getCharPos(ch2);
+           
+           
+           
+           // if two characters are  in same row.
+           if(ch1pos[0]==ch2pos[0])
+           {
+              ch1pos[1]=(ch1pos[1]+1)%5;
+              ch2pos[1]=(ch2pos[1]+1)%5;
+           
+           }
+           //if 
+           else if(ch1pos[1]==ch2pos[1])
+           {
+              ch1pos[0]=(ch1pos[0]+1)%5;
+              ch2pos[0]=(ch2pos[0]+1)%5;
+           }
+           else
+           {
+               int temp=ch1pos[1];
+               ch1pos[1]=ch2pos[1];
+               ch2pos[1]=temp;
+           }
+           enctext=enctext+keymatrix[ch1pos[0]][ch1pos[1]]+keymatrix[ch2pos[0]][ch2pos[1]];
+           
+           
+       }
+       return enctext;
+       
+        
+    }
+    
+    public String Decryption()
+    {
+        String entext= Encryption();
+        String[] pairs= PairofString(entext);
+        String detext="";
+        for(int i=0;i<pairs.length;i++)
+       {
+           char ch1=pairs[i].charAt(0);
+           char ch2=pairs[i].charAt(1);
+           int [] ch1pos=getCharPos(ch1);
+           int [] ch2pos=getCharPos(ch2);
+           
+           
+           
+           // if two characters are  in same row.
+           if(ch1pos[0]==ch2pos[0])
+           {
+              ch1pos[1]=(ch1pos[1]-1)%5;
+              ch2pos[1]=(ch2pos[1]-1)%5;
+           
+           }
+           //if 
+           else if(ch1pos[1]==ch2pos[1])
+           {
+              ch1pos[0]=(ch1pos[0]-1)%5;
+              ch2pos[0]=(ch2pos[0]-1)%5;
+           }
+           else
+           {
+               int temp=ch1pos[1];
+               ch1pos[1]=ch2pos[1];
+               ch2pos[1]=temp;
+           }
+           detext=detext+keymatrix[ch1pos[0]][ch1pos[1]]+keymatrix[ch2pos[0]][ch2pos[1]];
+           
+           
+       }
+       return detext; 
+        
+    }
+    
+    public void Messagechecker(String a,String b)
+    {
+        if(a.equals(b))
+        {
+         System.out.println("Message received Correct and Successful");
+        }
+        else
+        {
+            System.out.println("Incorrect Message");
+        }
+    }
+    
+    
+    
+    
+}
+
