@@ -290,6 +290,32 @@ public class PlayfairCipher
     
     
     
+  }  
+
+public class Main
+{
     
+    public static void main(String[] args)
+    {
+     
+          String key="playfairexample";
+          String plaintext="welcome";
+          boolean check=false;
+          String plaintext1="";
+          PlayfairCipher pcf1=new PlayfairCipher (key,plaintext);
+        
+          pcf1.RemoveDuplicatesInKey();
+         
+          pcf1.generateCipherKey();
+          
+          String enctext=pcf1.Encryption();
+          System.out.println("The Encrypted text->"+enctext);
+          String dectext=pcf1.Decryption();
+          System.out.println("The Decrypted text->"+dectext);
+          pcf1.Messagechecker(plaintext1,dectext);
+    
+    }
 }
+    
+
 
