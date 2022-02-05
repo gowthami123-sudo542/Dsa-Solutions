@@ -1,0 +1,88 @@
+public class HillCiphers
+{
+    
+    int n;
+    String plaintext;
+   
+    String key;
+   
+    int keymatrix[][];
+    int inversematrix[][]; 
+    float  b[][];
+    float  c[][];
+    //constructor
+    public HillCiphers(String plaintext,String key,int n)
+    {
+        this.keymatrix = new int[n][n];
+        this.inversematrix=new int[n][n];
+        this.plaintext=plaintext.toLowerCase();
+        this.key=key.toLowerCase();
+        this.n=n;
+        this.b=new float[n][n];
+        this.c=new float[n][n];
+        
+    }
+    
+    public void KeyMatrix()       
+    {
+     String tempKey=new String(key); 
+     int k=0;
+     for(int i=0;i<n;i++)
+     {
+         for(int j=0;j<n;j++)
+         {
+           keymatrix[i][j]=(int)tempKey.charAt(k)-97; 
+           
+           k++;
+         }
+     }
+     for(int i=0;i<n;i++)
+     {
+         for(int j=0;j<n;j++)
+         {
+             System.out.println(keymatrix[i][j]);
+         }
+    }
+    
+        
+    }
+   
+    public String Encrpytion()
+    {
+        String ciphertext="";
+        int temp = (n-plaintext.length()%n)%n;
+         for(int i=0;i<temp;i++){
+           plaintext+='x';
+           }
+           int k=0;
+        
+    
+        while(k<plaintext.length())
+        {
+            for(int i=0;i<n;i++){
+            int sum = 0;
+            int temp1 = k;
+            for(int j=0;j<n;j++){
+                sum += (keymatrix[i][j]%26*((int)plaintext.charAt(temp1)-97)%26)%26;
+                sum = sum%26;
+                temp1++;
+            }
+            ciphertext+=(char)(sum+97);
+        }
+        k+=n;
+        }
+        return ciphertext;
+        
+    }
+    
+    public static void main(String[] args)
+    {
+        
+        String plaintext="welcome";
+        String key="test";
+        int n=2;
+        HillCiphers hc=new HillCiphers(plaintext,key,n);
+        hc.KeyMatrix();
+        String encryptedtext=hc.Encrpytion();
+        System.out.println("The Cipher text:-"+encryptedtext);
+       }
