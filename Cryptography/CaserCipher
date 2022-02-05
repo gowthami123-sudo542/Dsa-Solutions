@@ -1,0 +1,87 @@
+public class CaserCipher 
+{
+    
+    public static void main(String [] args)
+    {
+        String plaintext="GowThAmi";
+       
+        int Secretkey=5;
+        //Secretkey=Secretkey%26;
+       
+       
+       StringBuffer EncryptedCode=encryption(plaintext,Secretkey);
+       String CipherCode=EncryptedCode.toString();
+       System.out.println("The Cipher text is "+CipherCode);
+       
+       StringBuffer DecryptedCode=Decrpytion(CipherCode,Secretkey);
+       
+       String decryptedplaintext= DecryptedCode.toString();
+       System.out.println("The  Decrypted Plain text is "+decryptedplaintext);
+       Messagechecker(plaintext,decryptedplaintext);
+       
+       
+       
+       
+       
+       
+    }
+     
+   
+    public static StringBuffer encryption(String text, int k)
+    {
+        StringBuffer result= new StringBuffer();
+ 
+        for (int i=0; i<text.length(); i++)
+        {
+            if (Character.isUpperCase(text.charAt(i)))
+            {
+                char ch = (char)(((int)text.charAt(i) +  k- 65) % 26 + 65);
+                                
+                result.append(ch);
+            }
+            else
+            {
+                char ch = (char)(((int)text.charAt(i) +  k - 97) % 26 + 97);
+                                
+                result.append(ch);
+            }
+        }
+        return result;
+    }
+    
+    public static StringBuffer Decrpytion(String cipher,int k)
+    {
+       StringBuffer result= new StringBuffer();
+ 
+        for (int i=0; i<cipher.length(); i++)
+        {
+            if (Character.isUpperCase(cipher.charAt(i)))
+            {
+                char ch = (char)(((int)cipher.charAt(i)-(k-26)-65) % 26 + 65);
+                                
+                result.append(ch);
+            }
+            else
+            {
+                char ch = (char)(((int)cipher.charAt(i)-(k-26) -97) % 26 + 97);
+                                
+                result.append(ch);
+            }
+        }
+        return result;
+    }
+    static void Messagechecker(String a,String b)
+    {
+        if(a.equals(b))
+        {
+         System.out.println("Message received Correct and Successful");
+        }
+        else
+        {
+            System.out.println("Incorrect Message");
+        }
+    }
+    
+    
+    
+}
