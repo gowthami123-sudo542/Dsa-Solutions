@@ -1,0 +1,57 @@
+
+//O(n):-Time Complexity
+//list,collection sortinng
+//Alternate Indices checking
+
+class Solution {
+    public int[] sortEvenOdd(int[] nums) 
+    {
+        //base condition
+        //int [] nums={4,1,2,3};
+        int n=nums.length;
+        if(n<=2)
+        {
+           //System.out.println(Arrays.toString(nums));
+            return nums;
+        }
+      List<Integer> even=new ArrayList<>(); 
+      List<Integer> odd=new ArrayList<>();    
+        for(int i=0;i<n;i=i+1)
+        {
+                    
+           
+           
+            if(i%2==0)
+            {
+                even.add(nums[i]);
+            }
+            else
+            {
+                odd.add(nums[i]);
+            }
+            
+        }
+        
+        Collections.sort(even);
+        Collections.sort(odd);
+        Collections.reverse(odd);
+        int [] result=new int[n];
+        int b=0;
+        int c=0;
+        for(int i=0;i<n;i=i+1)
+        {
+            if(i%2==0)
+            {
+              result[i]=even.get(b++);   
+            }
+            else
+            {
+              result[i]=odd.get(c++);    
+            }
+         
+        }
+       // System.out.println(Arrays.toString(result));
+        return result;
+        
+    }
+}
