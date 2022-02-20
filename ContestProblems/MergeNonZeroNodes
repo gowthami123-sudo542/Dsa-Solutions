@@ -1,0 +1,23 @@
+class Solution {
+    public ListNode mergeNodes(ListNode head) 
+    {
+        
+        ListNode result,temp=new ListNode();
+        result=temp;
+        int sum=0;
+        while(head!=null)
+        {
+           if(head.val==0 && sum!=0)
+           {
+               temp.next=new ListNode(sum);
+               temp=temp.next;
+               sum=0;
+           }
+           sum=sum+head.val;
+           head=head.next;
+            
+        }
+        return result.next;
+        
+    }
+}
