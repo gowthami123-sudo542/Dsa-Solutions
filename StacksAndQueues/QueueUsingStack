@@ -1,0 +1,71 @@
+//optimized method
+//push-O(1)
+
+ /*if output stack is empty
+ pop-O(n) 
+ */
+ /*else
+ pop=O(1)
+ */
+ 
+/*
+ if outpput stack is empty
+ top-O(n)
+ */
+ /*
+ top-O(1)
+ */
+class MyQueue {
+    Stack<Integer> input=new Stack<>();
+    Stack<Integer> output =new Stack<>();
+    
+    public MyQueue() {
+        
+    }
+    
+    public void push(int x) 
+    {
+        
+       input.push(x); 
+        
+    }
+    
+    public int pop() 
+    {
+     
+        if(output.isEmpty())
+        {
+          
+           while (input.empty() == false)
+            {
+                output.push(input.peek());
+                input.pop();     
+            } 
+            
+         
+               
+        }
+        return output.pop();
+      
+    }
+    
+    public int peek() 
+    {
+        
+        
+        if(output.isEmpty())
+        {
+            while(input.empty()==false)
+            {
+                output.push(input.peek());
+                input.pop();
+            }
+        }
+        return output.peek();
+       
+    }
+    
+    public boolean empty() {
+      return output.isEmpty()&& input.isEmpty();  
+    }
+}
