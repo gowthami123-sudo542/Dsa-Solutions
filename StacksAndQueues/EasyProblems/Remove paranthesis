@@ -1,4 +1,4 @@
-# without stack
+# without stack runs faster
 
 class Solution {
     public String removeOuterParentheses(String s)
