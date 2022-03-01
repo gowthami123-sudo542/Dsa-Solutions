@@ -26,7 +26,7 @@ class CustomStack {
         }
     }
 }
-// By using Array
+/// By using Array
 class CustomStack
 {
     int[] stack;
