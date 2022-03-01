@@ -1,3 +1,4 @@
+
 class CustomStack {
     private List<Integer> list=new ArrayList<>();
     private int size;
