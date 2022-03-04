@@ -1,5 +1,5 @@
 
-//Time complexity:-O(n^2)
+///Time complexity:-O(n^2)
 class Solution {
     public int[] countBits(int n) 
     {
