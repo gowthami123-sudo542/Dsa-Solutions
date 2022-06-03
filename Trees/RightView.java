@@ -1,33 +1,37 @@
- public static ArrayList<Integer> BottomView(DisplayTree.Node node, ArrayList<Integer> b)
-    {
-        b=new ArrayList<>();
-        if(node==null)
-        {
-            return b;
-        }
-        Queue<Pair> q=new ArrayDeque<>();
-        Map<Integer,Integer> map=new TreeMap<>();
-        q.add(new Pair(node,0));
-        while(!q.isEmpty()) {
-            Pair p = q.remove();
-            DisplayTree.Node temp = p.node;
-            int topp = p.position;
-
-            map.put(topp, temp.data);
-
-
-            if (temp.left != null) {
-                q.add(new Pair(temp.left, topp - 1));
-            }
-            if (temp.right != null) {
-                q.add(new Pair(temp.right, topp + 1));
-            }
-        }
-        for(Map.Entry<Integer,Integer> entry:map.entrySet())
-        {
-            b.add(entry.getValue());
-        }
-        //System.out.println(al);
-        return b;
-
+ 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+         RightView(root,list,0);
+         return list;
     }
+    
+    public void RightView(TreeNode curr,List<Integer> l,int level)
+    {
+        if(curr==null)
+        {
+            return;
+        }
+        if(level==l.size())
+        {
+            l.add(curr.val);
+        }
+        RightView(curr.right,l,level+1);
+        RightView(curr.left,l,level+1);
+    }
+}
